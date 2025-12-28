@@ -13,8 +13,7 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await axios.post(
-        ""https://zerodhaclone-production.up.railway.app/api/auth/login"",
+      const response = await axios.post("https://zerodhaclone-production.up.railway.app/api/auth/login",
         { email, password }
       );
 
