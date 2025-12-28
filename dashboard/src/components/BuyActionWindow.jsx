@@ -12,7 +12,7 @@ const BuyActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
 
   const handleBuyClick = async () => {
-    await axios.post("http://localhost:3002/newOrder", {
+    await axios.post("https://zerodhaclone-production.up.railway.app/newOrder", {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,

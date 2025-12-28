@@ -10,7 +10,7 @@ const Holdings = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:3002/allHoldings").then((res) => {
+    axios.get("https://zerodhaclone-production.up.railway.app/allHoldings").then((res) => {
       console.log(res.data);
       setAllHoldings(res.data);
     });
