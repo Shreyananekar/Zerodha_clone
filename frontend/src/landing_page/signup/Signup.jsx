@@ -12,14 +12,14 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3002/api/auth/register", {
+      await axios.post("https://zerodhaclone-production.up.railway.app/api/auth/register", {
         name,
         email,
         password,
       });
 
       alert("User registered successfully");
-      window.location.href = "http://localhost:5173/";
+      window.location.href = "https://zerodhaclone124.netlify.app/";
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
     }

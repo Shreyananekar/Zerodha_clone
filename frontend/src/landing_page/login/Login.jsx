@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3002/api/auth/login",
+        ""https://zerodhaclone-production.up.railway.app/api/auth/login"",
         { email, password }
       );
 
@@ -22,7 +22,7 @@ const Login = () => {
       localStorage.setItem("token", token);
 
       // redirect to dashboard app
-      window.location.href = "http://localhost:5173/";
+      window.location.href = "https://zerodhaclone124.netlify.app/";
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
