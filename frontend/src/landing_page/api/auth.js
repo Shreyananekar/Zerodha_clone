@@ -1,7 +1,7 @@
 // src/api/auth.js
 import axios from "axios";
 
-const API_URL = "https://zerodhaclone-production.up.railway.app/api/auth";
+const API_URL = "https://zerodha-clone-agsc.onrender.com/api/auth";
 
 export const registerUser = async (userData) => {
   return await axios.post(`${API_URL}/register`, userData);
