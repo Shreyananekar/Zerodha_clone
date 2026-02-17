@@ -13,7 +13,7 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await axios.post("https://zerodhaclone-production.up.railway.app/api/auth/login",
+      const response = await axios.post("https://zerodha-clone-agsc.onrender.com/api/auth/login",
         { email, password }
       );
 
@@ -21,7 +21,7 @@ const Login = () => {
       localStorage.setItem("token", token);
 
       // redirect to dashboard app
-      window.location.href = "https://zerodhaclone124.netlify.app/";
+      window.location.href = "https://zerodha-clone-2-w3vk.onrender.com";
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
