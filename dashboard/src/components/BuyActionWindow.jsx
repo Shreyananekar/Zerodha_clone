@@ -12,14 +12,27 @@ const BuyActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
 
   const handleBuyClick = async () => {
-    await axios.post("https://zerodha-clone-agsc.onrender.com/newOrder", {
+    const newOrder = {
+      id: Date.now(), // unique id for the order
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
       mode: "BUY",
-    });
+    };
 
-    ctx.closeBuyWindow();
+    try {
+      // Send order to backend
+      await axios.post("https://zerodha-clone-agsc.onrender.com/newOrder", newOrder);
+
+      // Add order to context so Orders.jsx updates immediately
+      ctx.addOrder(newOrder);
+
+      // Close the buy window
+      ctx.closeBuyWindow();
+    } catch (err) {
+      console.error("Error placing order:", err);
+      alert("Failed to place order. Try again.");
+    }
   };
 
   const handleCancelClick = () => {
@@ -35,7 +48,8 @@ const BuyActionWindow = ({ uid }) => {
             <input
               type="number"
               value={stockQuantity}
-              onChange={(e) => setStockQuantity(e.target.value)}
+              onChange={(e) => setStockQuantity(Number(e.target.value))}
+              min={1}
             />
           </fieldset>
 
@@ -45,7 +59,8 @@ const BuyActionWindow = ({ uid }) => {
               type="number"
               step="0.05"
               value={stockPrice}
-              onChange={(e) => setStockPrice(e.target.value)}
+              onChange={(e) => setStockPrice(Number(e.target.value))}
+              min={0}
             />
           </fieldset>
         </div>
@@ -67,3 +82,4 @@ const BuyActionWindow = ({ uid }) => {
 };
 
 export default BuyActionWindow;
+
