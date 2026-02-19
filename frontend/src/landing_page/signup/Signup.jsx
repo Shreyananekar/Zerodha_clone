@@ -12,7 +12,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      await axios.post("https://zerodhaclone-production.up.railway.app/api/auth/register", {
+      await axios.post("https://zerodha-clone-agsc.onrender.com/api/auth/register", {
         name,
         email,
         password,
